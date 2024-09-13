@@ -17,7 +17,7 @@ const multer = Multer({
 });
 
 let projectId = "tokyo-analyst-431809-n3"; 
-let keyFilename = "C:/Users/Navodhya Yasisuru/Documents/DFCC/Complience/bot101/tokyo-analyst-431809-n3-047c6d9a2b3d.json"; 
+let keyFilename = "./tokyo-analyst-431809-n3-047c6d9a2b3d.json"; 
 const storage = new Storage({
   projectId,
   keyFilename,
@@ -26,7 +26,7 @@ const bucket = storage.bucket("example-bot_1");
 
 // Endpoint to fetch all files in the bucket
 app.get("/upload", async (req, res) => {
-  try {
+  try {  
     const [files] = await bucket.getFiles();
     res.send([files]);
     console.log("Successfully fetched files from the bucket.");
